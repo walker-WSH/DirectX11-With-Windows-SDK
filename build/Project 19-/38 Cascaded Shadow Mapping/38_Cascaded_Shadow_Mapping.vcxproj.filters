@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 19-\38 Cascaded Shadow Mapping\CascadedShadowManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 19-\38 Cascaded Shadow Mapping\ForwardEffect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 19-\38 Cascaded Shadow Mapping\GameApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 19-\38 Cascaded Shadow Mapping\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 19-\38 Cascaded Shadow Mapping\ShadowEffect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 19-\38 Cascaded Shadow Mapping\SkyboxEffect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 19-\38 Cascaded Shadow Mapping\CascadedShadowManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 19-\38 Cascaded Shadow Mapping\Effects.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 19-\38 Cascaded Shadow Mapping\GameApp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\workspace\DirectX11-With-Windows-SDK-forked\build\Project 19-\38 Cascaded Shadow Mapping\Shaders\CascadedShadow.hlsl">
+      <Filter>Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\workspace\DirectX11-With-Windows-SDK-forked\build\Project 19-\38 Cascaded Shadow Mapping\Shaders\ConstantBuffers.hlsl">
+      <Filter>Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\workspace\DirectX11-With-Windows-SDK-forked\build\Project 19-\38 Cascaded Shadow Mapping\Shaders\FullScreenTriangle.hlsl">
+      <Filter>Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\workspace\DirectX11-With-Windows-SDK-forked\build\Project 19-\38 Cascaded Shadow Mapping\Shaders\Rendering.hlsl">
+      <Filter>Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\workspace\DirectX11-With-Windows-SDK-forked\build\Project 19-\38 Cascaded Shadow Mapping\Shaders\Shadow.hlsl">
+      <Filter>Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\workspace\DirectX11-With-Windows-SDK-forked\build\Project 19-\38 Cascaded Shadow Mapping\Shaders\Skybox.hlsl">
+      <Filter>Shaders</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 19-\38 Cascaded Shadow Mapping\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{6D77494B-5DE7-3085-A2FF-E4D3ABCF2867}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{93346B56-8C17-3464-AECF-DA00648CE114}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{E86B1283-3E2D-33A2-A184-CD2238E4A274}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\08 Direct2D and Direct3D Interoperability\CpuTimer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\08 Direct2D and Direct3D Interoperability\DXTrace.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\08 Direct2D and Direct3D Interoperability\GameApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\08 Direct2D and Direct3D Interoperability\Keyboard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\08 Direct2D and Direct3D Interoperability\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\08 Direct2D and Direct3D Interoperability\Mouse.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\08 Direct2D and Direct3D Interoperability\Vertex.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\08 Direct2D and Direct3D Interoperability\d3dApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\08 Direct2D and Direct3D Interoperability\d3dUtil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\08 Direct2D and Direct3D Interoperability\CpuTimer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\08 Direct2D and Direct3D Interoperability\DXTrace.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\08 Direct2D and Direct3D Interoperability\GameApp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\08 Direct2D and Direct3D Interoperability\Geometry.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\08 Direct2D and Direct3D Interoperability\Keyboard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\08 Direct2D and Direct3D Interoperability\LightHelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\08 Direct2D and Direct3D Interoperability\Mouse.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\08 Direct2D and Direct3D Interoperability\Vertex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\08 Direct2D and Direct3D Interoperability\WinMin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\08 Direct2D and Direct3D Interoperability\d3dApp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\08 Direct2D and Direct3D Interoperability\d3dUtil.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\08 Direct2D and Direct3D Interoperability\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <FXCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\08 Direct2D and Direct3D Interoperability\HLSL\Light_PS.hlsl">
+      <Filter>HLSL Files</Filter>
+    </FXCompile>
+    <FXCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\08 Direct2D and Direct3D Interoperability\HLSL\Light_VS.hlsl">
+      <Filter>HLSL Files</Filter>
+    </FXCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\08 Direct2D and Direct3D Interoperability\HLSL\Light.hlsli">
+      <Filter>HLSL Files</Filter>
+    </None>
+    <None Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\08 Direct2D and Direct3D Interoperability\HLSL\LightHelper.hlsli">
+      <Filter>HLSL Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="HLSL Files">
+      <UniqueIdentifier>{91A470CC-28F5-371B-9FED-7B17E51CC91B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{6D77494B-5DE7-3085-A2FF-E4D3ABCF2867}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{E86B1283-3E2D-33A2-A184-CD2238E4A274}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

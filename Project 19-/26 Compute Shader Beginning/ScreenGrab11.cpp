@@ -791,8 +791,10 @@ _Use_decl_annotations_
 HRESULT DirectX::SaveDDSTextureToFile(
     ID3D11DeviceContext* pContext,
     ID3D11Resource* pSource,
-    const wchar_t* fileName) noexcept
+    const wchar_t* fileName, DWORD& clr) noexcept
 {
+    clr = 0;
+
     if (!fileName)
         return E_INVALIDARG;
 
@@ -923,6 +925,12 @@ HRESULT DirectX::SaveDDSTextureToFile(
     }
 
     uint8_t* dptr = pixels.get();
+
+    // DXGI_FORMAT_R8G8B8A8_UNORM
+    BYTE r = *sptr;
+    BYTE g = *(sptr + 1);
+    BYTE b = *(sptr + 2);
+    clr = (0xff << 24) | (r<< 16) | (g << 8) | (b << 0); // ARGB
 
     const size_t msize = std::min<size_t>(rowPitch, mapped.RowPitch);
     for (size_t h = 0; h < rowCount; ++h)

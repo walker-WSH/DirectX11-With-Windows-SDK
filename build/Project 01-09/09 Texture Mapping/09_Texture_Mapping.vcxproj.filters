@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\09 Texture Mapping\CpuTimer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\09 Texture Mapping\DDSTextureLoader11.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\09 Texture Mapping\DXTrace.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\09 Texture Mapping\GameApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\09 Texture Mapping\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\09 Texture Mapping\Vertex.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\09 Texture Mapping\WICTextureLoader11.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\09 Texture Mapping\d3dApp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\09 Texture Mapping\d3dUtil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\09 Texture Mapping\CpuTimer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\09 Texture Mapping\DDSTextureLoader11.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\09 Texture Mapping\DXTrace.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\09 Texture Mapping\GameApp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\09 Texture Mapping\Geometry.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\09 Texture Mapping\LightHelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\09 Texture Mapping\Vertex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\09 Texture Mapping\WICTextureLoader11.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\09 Texture Mapping\WinMin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\09 Texture Mapping\d3dApp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\09 Texture Mapping\d3dUtil.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\09 Texture Mapping\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <FXCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\09 Texture Mapping\HLSL\Basic_2D_PS.hlsl">
+      <Filter>HLSL Files</Filter>
+    </FXCompile>
+    <FXCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\09 Texture Mapping\HLSL\Basic_2D_VS.hlsl">
+      <Filter>HLSL Files</Filter>
+    </FXCompile>
+    <FXCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\09 Texture Mapping\HLSL\Basic_3D_PS.hlsl">
+      <Filter>HLSL Files</Filter>
+    </FXCompile>
+    <FXCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\09 Texture Mapping\HLSL\Basic_3D_VS.hlsl">
+      <Filter>HLSL Files</Filter>
+    </FXCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\09 Texture Mapping\HLSL\Basic.hlsli">
+      <Filter>HLSL Files</Filter>
+    </None>
+    <None Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 01-09\09 Texture Mapping\HLSL\LightHelper.hlsli">
+      <Filter>HLSL Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="HLSL Files">
+      <UniqueIdentifier>{91A470CC-28F5-371B-9FED-7B17E51CC91B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{6D77494B-5DE7-3085-A2FF-E4D3ABCF2867}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{E86B1283-3E2D-33A2-A184-CD2238E4A274}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -33,7 +33,7 @@ namespace DirectX
     HRESULT __cdecl SaveDDSTextureToFile(
         _In_ ID3D11DeviceContext* pContext,
         _In_ ID3D11Resource* pSource,
-        _In_z_ const wchar_t* fileName) noexcept;
+        _In_z_ const wchar_t* fileName, DWORD& clr) noexcept;
 
     HRESULT __cdecl SaveWICTextureToFile(
         _In_ ID3D11DeviceContext* pContext,

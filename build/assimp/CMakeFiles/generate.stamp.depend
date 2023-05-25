@@ -1,0 +1,15 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-3.24/Modules/BasicConfigVersion-SameMajorVersion.cmake.in
+C:/Program Files/CMake/share/cmake-3.24/Modules/CMakePackageConfigHelpers.cmake
+C:/Program Files/CMake/share/cmake-3.24/Modules/CheckFunctionExists.cmake
+C:/Program Files/CMake/share/cmake-3.24/Modules/CheckIncludeFile.cmake
+C:/Program Files/CMake/share/cmake-3.24/Modules/CheckIncludeFileCXX.cmake
+C:/Program Files/CMake/share/cmake-3.24/Modules/CheckTypeSize.cmake
+C:/Program Files/CMake/share/cmake-3.24/Modules/WriteBasicConfigVersionFile.cmake
+E:/workspace/DirectX11-With-Windows-SDK-forked/assimp/CMakeLists.txt
+E:/workspace/DirectX11-With-Windows-SDK-forked/assimp/assimp.pc.in
+E:/workspace/DirectX11-With-Windows-SDK-forked/assimp/cmake-modules/FindPkgMacros.cmake
+E:/workspace/DirectX11-With-Windows-SDK-forked/assimp/cmake-modules/PrecompiledHeader.cmake
+E:/workspace/DirectX11-With-Windows-SDK-forked/assimp/cmake-modules/assimp-plain-config.cmake.in
+E:/workspace/DirectX11-With-Windows-SDK-forked/assimp/include/assimp/config.h.in
+E:/workspace/DirectX11-With-Windows-SDK-forked/assimp/revision.h.in
