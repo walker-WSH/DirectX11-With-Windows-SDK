@@ -15,10 +15,10 @@
 //#endif
 
 struct OutputBuffer {
-	int x;
-	int y;
-	float reserve1;
-	float reserve2;
+	int x = 112233;
+	int y = 112233;
+	int threadCount = 0;
+	float reserve1 = 0.f;
 };
 
 class GameApp : public D3DApp {

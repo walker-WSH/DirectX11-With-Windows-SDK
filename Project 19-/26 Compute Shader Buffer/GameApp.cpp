@@ -23,6 +23,8 @@ void GameApp::Compute()
 	// 注意：以下DX函数 都是CS_XXXX， 以CS开头
 
 	while (1) {
+		InitOutputBuffer();
+
 		m_pd3dImmediateContext->CSSetShaderResources(0, 1, m_pTextureInputA.GetAddressOf());
 		m_pd3dImmediateContext->CSSetShaderResources(1, 1, m_pTextureInputB.GetAddressOf());
 
@@ -81,9 +83,6 @@ void GameApp::UpdateShaderBuffer(ComPtr<ID3D11Buffer> buffer, const void *data, 
 void GameApp::InitOutputBuffer()
 {
 	OutputBuffer initData;
-	ZeroMemory(&initData, sizeof(OutputBuffer));
-	initData.x = 1122331;
-	initData.y = -112233;
 
 	UINT uElementSize = sizeof(OutputBuffer);
 	UINT uCount = 1;
@@ -172,7 +171,7 @@ void GameApp::CopyAndReadOutputBuffer()
 
 		OutputBuffer *ptr = (OutputBuffer *)MappedResource.pData;
 		char buf[200];
-		sprintf_s(buf, "============ lastOne : %d, %d \n", ptr->x, ptr->y);
+		sprintf_s(buf, "============ lastOne : %d, %d,  %d threads \n", ptr->x, ptr->y, ptr->threadCount);
 		OutputDebugStringA(buf);
 
 		m_pd3dImmediateContext->Unmap(debugbuf.Get(), 0);

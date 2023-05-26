@@ -7,8 +7,8 @@ cbuffer ConstantBuffer : register(b0)
 struct OutputBuffer {
 	int x;
 	int y;
+	int threadCount;
 	float reserve1;
-	float reserve2;
 };
 
 // intput texture
@@ -23,8 +23,8 @@ RWStructuredBuffer<OutputBuffer> BufferOut : register(u0);
 	if (BufferOut[0].x != -1) {
 		BufferOut[0].x = (int)DTid.x;
 		BufferOut[0].y = (int)DTid.y;
+		BufferOut[0].threadCount += 1;
 	}
 
 	BufferOut[0].reserve1 = 1.f;
-	BufferOut[0].reserve2 = 2.f;
 }
