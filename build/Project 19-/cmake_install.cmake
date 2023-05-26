@@ -74,6 +74,11 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
+  include("E:/workspace/DirectX11-With-Windows-SDK-forked/build/Project 19-/26 Compute Shader Buffer/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
   include("E:/workspace/DirectX11-With-Windows-SDK-forked/build/Project 19-/27 Bitonic Sort/cmake_install.cmake")
 endif()
 
