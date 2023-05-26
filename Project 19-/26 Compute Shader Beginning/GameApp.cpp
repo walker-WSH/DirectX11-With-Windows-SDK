@@ -23,6 +23,7 @@ bool SaveBitmapFile(const wchar_t *path, const uint8_t *data, int linesize, int 
 void GameApp::Compute()
 {
 	assert(m_pd3dImmediateContext);
+	// 注意：以下DX函数 都是CS_XXXX， 以CS开头
 
 	m_pd3dImmediateContext->CSSetShaderResources(0, 1, m_pTextureInputA.GetAddressOf());
 	m_pd3dImmediateContext->CSSetShaderResources(1, 1, m_pTextureInputB.GetAddressOf());
@@ -30,6 +31,9 @@ void GameApp::Compute()
 	m_pd3dImmediateContext->CSSetShader(m_pTextureMul_CS.Get(), nullptr, 0);
 	m_pd3dImmediateContext->CSSetUnorderedAccessViews(0, 1, m_pTextureOutputUAV.GetAddressOf(),
 							  nullptr);
+
+	ID3D11Buffer *buffer[] = {m_pCSConstBuffer.Get()};
+	m_pd3dImmediateContext->CSSetConstantBuffers(0, 1, buffer);
 
 	// 此处的x/y/z和shader中的numthreads配合，最终扫描区域可能会超出纹理尺寸，超出的部分也会调用到computeshader
 	// 可以向shader同时传递纹理分辨率的const buffer
@@ -85,7 +89,40 @@ bool GameApp::InitResource()
 	m_pd3dDevice->CreateComputeShader(blob->GetBufferPointer(), blob->GetBufferSize(), nullptr,
 					  m_pTextureMul_CS.GetAddressOf());
 
+	{ // const buffer for compute shader
+
+		float clr[4];
+		clr[0] = 0.0;
+		clr[1] = 1.0;
+		clr[2] = 0.0;
+		clr[3] = 1.0;
+
+		D3D11_BUFFER_DESC CBufferDesc = {};
+		CBufferDesc.Usage = D3D11_USAGE_DEFAULT;
+		CBufferDesc.ByteWidth = sizeof(clr);
+		CBufferDesc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
+		auto hr = m_pd3dDevice->CreateBuffer(&CBufferDesc, NULL,
+						     m_pCSConstBuffer.GetAddressOf());
+		if (FAILED(hr)) {
+			assert(false);
+		}
+
+		UpdateShaderBuffer(m_pCSConstBuffer, clr, sizeof(clr));
+	}
+
 	return true;
+}
+
+void GameApp::UpdateShaderBuffer(ComPtr<ID3D11Buffer> buffer, const void *data, size_t size)
+{
+	D3D11_BUFFER_DESC desc;
+	buffer->GetDesc(&desc);
+
+	if (desc.ByteWidth == size)
+		m_pd3dImmediateContext->UpdateSubresource(buffer.Get(), 0, nullptr, data, 0, 0);
+	else {
+		assert(false);
+	}
 }
 
 bool SaveBitmapFile(const wchar_t *path, const uint8_t *data, int linesize, int width, int height,

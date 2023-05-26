@@ -26,6 +26,7 @@ public:
 
 private:
     bool InitResource();
+	void UpdateShaderBuffer(ComPtr<ID3D11Buffer> buffer, const void *data, size_t size);
 
 private:
 
@@ -36,6 +37,8 @@ private:
     
     ComPtr<ID3D11Texture2D> m_pTextureOutput;
     ComPtr<ID3D11UnorderedAccessView> m_pTextureOutputUAV;	
+    
+	ComPtr<ID3D11Buffer> m_pCSConstBuffer = nullptr;
 };
 
 

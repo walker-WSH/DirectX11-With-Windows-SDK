@@ -1,4 +1,8 @@
 
+cbuffer Constants : register(b0)
+{
+	float4 color;
+}
 
 Texture2D<float4> g_TexA : register(t0);
 Texture2D<float4> g_TexB : register(t1);
@@ -10,7 +14,7 @@ void CS( uint3 DTid : SV_DispatchThreadID )
    // g_Output[DTid.xy] = g_TexA[DTid.xy] * g_TexB[DTid.xy];
 
     if (DTid.x < 256) { // 注意：DTid.xy 中的x和y 都是像素单位的索引, 从0开始，范围并不是[0, 1]
-        g_Output[DTid.xy] = g_TexB[DTid.xy];
+	    g_Output[DTid.xy] = color;
     }
     else {
         g_Output[DTid.xy] = g_TexA[DTid.xy];
