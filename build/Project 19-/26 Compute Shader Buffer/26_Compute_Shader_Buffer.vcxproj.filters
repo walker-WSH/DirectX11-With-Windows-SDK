@@ -4,9 +4,6 @@
     <ClCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 19-\26 Compute Shader Buffer\DDSTextureLoader11.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 19-\26 Compute Shader Buffer\GameApp.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 19-\26 Compute Shader Buffer\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -16,12 +13,12 @@
     <ClCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 19-\26 Compute Shader Buffer\d3dApp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 19-\26 Compute Shader Buffer\GameApp.cpp">
+      <Filter>output structure buffer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 19-\26 Compute Shader Buffer\DDSTextureLoader11.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 19-\26 Compute Shader Buffer\GameApp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 19-\26 Compute Shader Buffer\ScreenGrab11.h">
@@ -30,24 +27,27 @@
     <ClInclude Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 19-\26 Compute Shader Buffer\d3dApp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 19-\26 Compute Shader Buffer\GameApp.h">
+      <Filter>output structure buffer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 19-\26 Compute Shader Buffer\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <FXCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 19-\26 Compute Shader Buffer\Shaders\TextureMul_CS.hlsl">
-      <Filter>Shaders</Filter>
+      <Filter>output structure buffer</Filter>
     </FXCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
       <UniqueIdentifier>{6D77494B-5DE7-3085-A2FF-E4D3ABCF2867}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Shaders">
-      <UniqueIdentifier>{93346B56-8C17-3464-AECF-DA00648CE114}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files">
       <UniqueIdentifier>{E86B1283-3E2D-33A2-A184-CD2238E4A274}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="output structure buffer">
+      <UniqueIdentifier>{93346B56-8C17-3464-AECF-DA00648CE114}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

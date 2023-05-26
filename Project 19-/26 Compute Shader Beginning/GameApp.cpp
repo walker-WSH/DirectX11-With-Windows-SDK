@@ -39,6 +39,10 @@ void GameApp::Compute()
 	// 可以向shader同时传递纹理分辨率的const buffer
 	m_pd3dImmediateContext->Dispatch(32, 32, 1);
 
+	// 注意：
+	// 微软的demo中，调用完了Dispatch， 又会把前面设置的参数都set为null
+	// https://github.com/walbourn/directx-sdk-samples/tree/main/BasicCompute11
+
 	//---------------------------------------------------------------------------------------------------------------
 	DWORD clr = 0;
 	SaveDDSTextureToFile(m_pd3dImmediateContext.Get(), m_pTextureOutput.Get(),
