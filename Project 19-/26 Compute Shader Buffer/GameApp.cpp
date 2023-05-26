@@ -22,26 +22,29 @@ void GameApp::Compute()
 	assert(m_pd3dImmediateContext);
 	// 注意：以下DX函数 都是CS_XXXX， 以CS开头
 
-	m_pd3dImmediateContext->CSSetShaderResources(0, 1, m_pTextureInputA.GetAddressOf());
-	m_pd3dImmediateContext->CSSetShaderResources(1, 1, m_pTextureInputB.GetAddressOf());
+	while (1) {
+		m_pd3dImmediateContext->CSSetShaderResources(0, 1, m_pTextureInputA.GetAddressOf());
+		m_pd3dImmediateContext->CSSetShaderResources(1, 1, m_pTextureInputB.GetAddressOf());
 
-	m_pd3dImmediateContext->CSSetShader(m_pTextureMul_CS.Get(), nullptr, 0);
-	m_pd3dImmediateContext->CSSetUnorderedAccessViews(0, 1, g_pBufResultUAV.GetAddressOf(),
-							  nullptr);
+		m_pd3dImmediateContext->CSSetShader(m_pTextureMul_CS.Get(), nullptr, 0);
+		m_pd3dImmediateContext->CSSetUnorderedAccessViews(
+			0, 1, g_pBufResultUAV.GetAddressOf(), nullptr);
 
-	ID3D11Buffer *buffer[] = {m_pCSConstBuffer.Get()};
-	m_pd3dImmediateContext->CSSetConstantBuffers(0, 1, buffer);
+		ID3D11Buffer *buffer[] = {m_pCSConstBuffer.Get()};
+		m_pd3dImmediateContext->CSSetConstantBuffers(0, 1, buffer);
 
-	// 此处的x/y/z和shader中的numthreads配合，最终扫描区域可能会超出纹理尺寸，超出的部分也会调用到computeshader
-	// 可以向shader同时传递纹理分辨率的const buffer
-	m_pd3dImmediateContext->Dispatch(32, 32, 1);
+		// 此处的x/y/z和shader中的numthreads配合，最终扫描区域可能会超出纹理尺寸，超出的部分也会调用到computeshader
+		// 可以向shader同时传递纹理分辨率的const buffer
+		m_pd3dImmediateContext->Dispatch(32, 32, 1);
 
-    // 注意：
-    // 微软的demo中，调用完了Dispatch， 又会把前面设置的参数都set为null
-    // https://github.com/walbourn/directx-sdk-samples/tree/main/BasicCompute11
+		// 注意：
+		// 微软的demo中，调用完了Dispatch， 又会把前面设置的参数都set为null
+		// https://github.com/walbourn/directx-sdk-samples/tree/main/BasicCompute11
 
-	//---------------------------------------------------------------------------------------------------------------
-	CopyAndReadOutputBuffer();
+		//---------------------------------------------------------------------------------------------------------------
+		CopyAndReadOutputBuffer();
+		Sleep(5);
+	}
 }
 
 bool GameApp::InitResource()
@@ -79,6 +82,8 @@ void GameApp::InitOutputBuffer()
 {
 	OutputBuffer initData;
 	ZeroMemory(&initData, sizeof(OutputBuffer));
+	initData.x = 1122331;
+	initData.y = -112233;
 
 	UINT uElementSize = sizeof(OutputBuffer);
 	UINT uCount = 1;
@@ -166,7 +171,10 @@ void GameApp::CopyAndReadOutputBuffer()
 		assert(SUCCEEDED(hr));
 
 		OutputBuffer *ptr = (OutputBuffer *)MappedResource.pData;
-		assert(ptr->i == 123456);
+		char buf[200];
+		sprintf_s(buf, "============ lastOne : %d, %d \n", ptr->x, ptr->y);
+		OutputDebugStringA(buf);
+
 		m_pd3dImmediateContext->Unmap(debugbuf.Get(), 0);
 	}
 }

@@ -15,8 +15,8 @@
 //#endif
 
 struct OutputBuffer {
-	int i;
-	float f;
+	int x;
+	int y;
 	float reserve1;
 	float reserve2;
 };
