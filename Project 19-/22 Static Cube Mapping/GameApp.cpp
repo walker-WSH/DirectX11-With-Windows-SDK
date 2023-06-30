@@ -118,8 +118,8 @@ bool GameApp::InitResource()
 		// 此处结束 TextureCube对象就会析构 其创建的纹理 已经保存到了m_TextureManager
 	}
 
-	// 天空盒立方体 Geometry::CreateBox()中初始化顶点
-	Model *pModel = m_ModelManager.CreateFromGeometry("Skybox", Geometry::CreateBox());
+	// 天空盒立方体 Geometry::CreateBox()中初始化顶点和索引数据
+	Model *pModel = m_ModelManager.CreateFromGeometry("Skybox", Geometry::CreateBox(2.f, 2.f, 2.f));
 	pModel->materials[0].Set<std::string>("$Skybox", "Daylight"); // 设置获取纹理的key“Daylight”
 	m_Skybox.SetModel(pModel);
 

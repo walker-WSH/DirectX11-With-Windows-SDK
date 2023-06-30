@@ -11,10 +11,11 @@ namespace Geometry
     {
         using namespace DirectX;
 
-        GeometryData geoData;
+	    GeometryData geoData;
+	    geoData.vertexList24.resize(24);
+	    geoData.indexList36.resize(36);
 
-        geoData.vertexList24.resize(24);
-
+        //---------------------------- 顶点数据 --------------------------------
         float w2 = width / 2, h2 = height / 2, d2 = depth / 2;
 
         // 右面(+X面)
@@ -48,8 +49,7 @@ namespace Geometry
         geoData.vertexList24[22] = XMFLOAT3(w2, h2, -d2);
         geoData.vertexList24[23] = XMFLOAT3(w2, -h2, -d2);
 
-        geoData.indexList36.resize(36);
-        
+        //---------------------------- 索引数据 --------------------------------
         uint16_t indices[] = {
             0, 1, 2, 2, 3, 0,		// 右面(+X面)
             4, 5, 6, 6, 7, 4,		// 左面(-X面)
