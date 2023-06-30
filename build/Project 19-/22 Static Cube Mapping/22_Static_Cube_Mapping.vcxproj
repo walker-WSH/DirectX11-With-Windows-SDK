@@ -213,18 +213,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{BBD7B6DF-9347-3729-9ECD-551D2C881831}</Project>
       <Name>Common</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\workspace\DirectX11-With-Windows-SDK-forked\build\ImGui\ImGui.vcxproj">
-      <Project>{392172A2-587A-3C93-9D67-2BCB7A73787A}</Project>
-      <Name>ImGui</Name>
-    </ProjectReference>
-    <ProjectReference Include="E:\workspace\DirectX11-With-Windows-SDK-forked\build\assimp\code\assimp.vcxproj">
-      <Project>{7EA772F4-E857-3C22-8E40-09E1C1F04C55}</Project>
-      <Name>assimp</Name>
-    </ProjectReference>
-    <ProjectReference Include="E:\workspace\DirectX11-With-Windows-SDK-forked\build\assimp\contrib\zlib\zlibstatic.vcxproj">
-      <Project>{C9F2E45F-2351-3ADC-BFAB-8FE2222ED33C}</Project>
-      <Name>zlibstatic</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
