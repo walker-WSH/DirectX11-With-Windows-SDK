@@ -178,7 +178,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 19-\22 Static Cube Mapping\BasicEffect.cpp" />
     <ClCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 19-\22 Static Cube Mapping\GameApp.cpp" />
     <ClCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 19-\22 Static Cube Mapping\Main.cpp" />
     <ClCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 19-\22 Static Cube Mapping\SkyboxEffect.cpp" />

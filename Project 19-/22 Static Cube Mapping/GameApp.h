@@ -14,34 +14,31 @@
 #include <ModelManager.h>
 #include <TextureManager.h>
 
-class GameApp : public D3DApp
-{
+class GameApp : public D3DApp {
 public:
-    GameApp(HINSTANCE hInstance, const std::wstring& windowName, int initWidth, int initHeight);
-    ~GameApp();
+	GameApp(HINSTANCE hInstance, const std::wstring &windowName, int initWidth, int initHeight);
+	~GameApp();
 
-    bool Init();
-    void OnResize();
-    void UpdateScene(float dt);
-    void DrawScene();
+	bool Init();
+	void OnResize();
+	void UpdateScene(float dt);
+	void DrawScene();
 
 private:
-    bool InitResource();
-    
+	bool InitResource();
+
 private:
+	TextureManager m_TextureManager;
+	ModelManager m_ModelManager;
 
-    TextureManager m_TextureManager;
-    ModelManager m_ModelManager;
+	SkyboxEffect m_SkyboxEffect; // 天空盒特效管理
 
-    SkyboxEffect m_SkyboxEffect;							    // 天空盒特效管理
+	std::unique_ptr<Depth2D> m_pDepthTexture; // 深度缓冲区
 
-    std::unique_ptr<Depth2D> m_pDepthTexture;                   // 深度缓冲区
+	GameObject m_Skybox; // 天空盒
 
-    GameObject m_Skybox;                                        // 天空盒
-
-    std::shared_ptr<FirstPersonCamera> m_pCamera;			    // 摄像机
-    FirstPersonCameraController m_CameraController;             // 摄像机控制器 
+	std::shared_ptr<FirstPersonCamera> m_pCamera;   // 摄像机
+	FirstPersonCameraController m_CameraController; // 摄像机控制器
 };
-
 
 #endif
