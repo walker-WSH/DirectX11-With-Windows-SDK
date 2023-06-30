@@ -161,10 +161,11 @@ void SkyboxEffect::Apply(ID3D11DeviceContext *deviceContext)
 {
 	XMMATRIX V = XMLoadFloat4x4(&pImpl->m_View);
 	V.r[3] = g_XMIdentityR3;
+
 	XMMATRIX VP = V * XMLoadFloat4x4(&pImpl->m_Proj);
 
 	VP = XMMatrixTranspose(VP);
-	pImpl->m_pEffectHelper->GetConstantBufferVariable("g_WorldViewProj")->SetFloatMatrix(4, 4, (const FLOAT *)&VP);
 
+	pImpl->m_pEffectHelper->GetConstantBufferVariable("g_WorldViewProj")->SetFloatMatrix(4, 4, (const FLOAT *)&VP);
 	pImpl->m_pCurrEffectPass->Apply(deviceContext);
 }

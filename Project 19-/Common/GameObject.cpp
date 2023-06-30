@@ -137,14 +137,10 @@ void GameObject::Draw(ID3D11DeviceContext *deviceContext, IEffect &effect)
 			continue;
 
 		IEffectMaterial *pEffectMaterial = dynamic_cast<IEffectMaterial *>(&effect);
-		if (pEffectMaterial)
+		if (pEffectMaterial) // set g_TexCube to shader
 			pEffectMaterial->SetMaterial(m_pModel->materials[m_pModel->meshdatas[i].m_MaterialIndex]);
 
-		IEffectTransform *pEffectTransform = dynamic_cast<IEffectTransform *>(&effect);
-		if (pEffectTransform)
-			pEffectTransform->SetWorldMatrix(m_Transform.GetLocalToWorldMatrixXM());
-
-		effect.Apply(deviceContext);
+		effect.Apply(deviceContext); // 其中会设置wvp矩阵 g_WorldViewProj
 
 		MeshDataInput input = pEffectMeshData->GetInputData(m_pModel->meshdatas[i]);
 		deviceContext->IASetInputLayout(input.pInputLayout);
