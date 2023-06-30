@@ -87,7 +87,9 @@ bool SkyboxEffect::InitAll(ID3D11Device *device)
 
 	// 创建顶点着色器
 	HR(pImpl->m_pEffectHelper->CreateShaderFromFile("SkyboxVS", L"Shaders\\Skybox_VS.cso", device, "VS", "vs_5_0", nullptr, blob.GetAddressOf()));
-	// 创建顶点布局
+
+    // 创建顶点布局
+    // POSITION & float3
 	HR(device->CreateInputLayout(VertexPos::GetInputLayout(), ARRAYSIZE(VertexPos::GetInputLayout()), blob->GetBufferPointer(), blob->GetBufferSize(),
 				     pImpl->m_pVertexPosLayout.ReleaseAndGetAddressOf()));
 
@@ -106,12 +108,6 @@ bool SkyboxEffect::InitAll(ID3D11Device *device)
 	}
 
 	pImpl->m_pEffectHelper->SetSamplerStateByName("g_Sam", RenderStates::SSLinearWrap.Get());
-
-	// 设置调试对象名
-#if (defined(DEBUG) || defined(_DEBUG)) && (GRAPHICS_DEBUGGER_OBJECT_NAME)
-	SetDebugObjectName(pImpl->m_pVertexPosLayout.Get(), "SkyboxEffect.VertexPosLayout");
-#endif
-	pImpl->m_pEffectHelper->SetDebugObjectName("SkyboxEffect");
 
 	return true;
 }

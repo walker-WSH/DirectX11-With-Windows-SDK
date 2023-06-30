@@ -29,7 +29,6 @@ bool GameApp::Init()
 
 void GameApp::OnResize()
 {
-
 	D3DApp::OnResize();
 
 	m_pDepthTexture = std::make_unique<Depth2D>(m_pd3dDevice.Get(), m_ClientWidth, m_ClientHeight);
@@ -112,14 +111,13 @@ bool GameApp::InitResource()
 		}
 
 		m_TextureManager.AddTexture("Daylight", pTexCube->GetShaderResource());
-        // 此处结束 TextureCube对象就会析构 其创建的纹理 已经保存到了m_TextureManager
+		// 此处结束 TextureCube对象就会析构 其创建的纹理 已经保存到了m_TextureManager
 	}
 
 	// 天空盒立方体
 	Model *pModel = m_ModelManager.CreateFromGeometry("Skybox", Geometry::CreateBox());
 	pModel->materials[0].Set<std::string>("$Skybox", "Daylight");
 	m_Skybox.SetModel(pModel);
-
 
 	// ******************
 	// 初始化摄像机
