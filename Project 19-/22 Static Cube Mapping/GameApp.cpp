@@ -111,13 +111,16 @@ bool GameApp::InitResource()
 			m_pd3dImmediateContext->CopySubresourceRegion(pTexCube->GetTexture(), D3D11CalcSubresource(0, i, 1), 0, 0, 0, pTex.Get(), 0, nullptr);
 		}
 
+		// 以“Daylight”为key 把立方体纹理保存了
+        // 最终渲染立方体纹理时 会在GameObject::Draw中 获取纹理并设置到HLSL
 		m_TextureManager.AddTexture("Daylight", pTexCube->GetShaderResource());
+
 		// 此处结束 TextureCube对象就会析构 其创建的纹理 已经保存到了m_TextureManager
 	}
 
-	// 天空盒立方体
+	// 天空盒立方体 Geometry::CreateBox()中初始化顶点
 	Model *pModel = m_ModelManager.CreateFromGeometry("Skybox", Geometry::CreateBox());
-	pModel->materials[0].Set<std::string>("$Skybox", "Daylight");
+	pModel->materials[0].Set<std::string>("$Skybox", "Daylight"); // 设置获取纹理的key“Daylight”
 	m_Skybox.SetModel(pModel);
 
 	// ******************
