@@ -61,23 +61,25 @@ void GameApp::DrawScene()
 	if (m_FrameCount < m_BackBufferCount) {
 		ComPtr<ID3D11Texture2D> pBackBuffer;
 		m_pSwapChain->GetBuffer(0, IID_PPV_ARGS(pBackBuffer.GetAddressOf()));
+
 		CD3D11_RENDER_TARGET_VIEW_DESC rtvDesc(D3D11_RTV_DIMENSION_TEXTURE2D, DXGI_FORMAT_R8G8B8A8_UNORM_SRGB);
 		m_pd3dDevice->CreateRenderTargetView(pBackBuffer.Get(), &rtvDesc, m_pRenderTargetViews[m_FrameCount].ReleaseAndGetAddressOf());
 	}
 
 	float black[4] = {0.0f, 0.0f, 0.0f, 1.0f};
 	m_pd3dImmediateContext->ClearRenderTargetView(GetBackBufferRTV(), black);
+
 	m_pd3dImmediateContext->ClearDepthStencilView(m_pDepthTexture->GetDepthStencil(), D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
+
 	ID3D11RenderTargetView *pRTVs[1] = {GetBackBufferRTV()};
 	m_pd3dImmediateContext->OMSetRenderTargets(1, pRTVs, m_pDepthTexture->GetDepthStencil());
+
 	D3D11_VIEWPORT viewport = m_pCamera->GetViewPort();
 	m_pd3dImmediateContext->RSSetViewports(1, &viewport);
 
 	// 绘制天空盒
 	m_SkyboxEffect.SetRenderDefault();
 	m_Skybox.Draw(m_pd3dImmediateContext.Get(), m_SkyboxEffect);
-
-	ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
 
 	HR(m_pSwapChain->Present(0, m_IsDxgiFlipModel ? DXGI_PRESENT_ALLOW_TEARING : 0));
 }
