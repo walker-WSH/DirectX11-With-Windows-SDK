@@ -16,11 +16,6 @@ void Model::CreateFromGeometry(Model& model, ID3D11Device* device, const Geometr
 {
     // 默认材质
     model.materials = { Material{} };
-    model.materials[0].Set<XMFLOAT4>("$AmbientColor", XMFLOAT4(0.2f, 0.2f, 0.2f, 1.0f));
-    model.materials[0].Set<XMFLOAT4>("$DiffuseColor", XMFLOAT4(0.8f, 0.8f, 0.8f, 1.0f));
-    model.materials[0].Set<XMFLOAT4>("$SpecularColor", XMFLOAT4(0.2f, 0.2f, 0.2f, 1.0f));
-    model.materials[0].Set<float>("$SpecularFactor", 10.0f);
-    model.materials[0].Set<float>("$Opacity", 1.0f);
 
     model.meshdatas = { MeshData{} };
     model.meshdatas[0].m_VertexCount = (uint32_t)data.vertices.size(); // 顶点 24个
