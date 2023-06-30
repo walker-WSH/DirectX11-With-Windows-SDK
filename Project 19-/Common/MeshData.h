@@ -24,7 +24,6 @@ struct MeshData
     using ComPtr = Microsoft::WRL::ComPtr<T>;
 
     ComPtr<ID3D11Buffer> m_pVertices;                    // 顶点buffer
-    std::vector<ComPtr<ID3D11Buffer>> m_pTexcoordArrays; // uv 纹理buffer
     ComPtr<ID3D11Buffer> m_pIndices;                     // 索引buffer
 
     uint32_t m_VertexCount = 0;

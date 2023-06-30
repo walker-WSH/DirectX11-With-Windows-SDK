@@ -23,7 +23,6 @@ void Model::CreateFromGeometry(Model& model, ID3D11Device* device, const Geometr
     model.materials[0].Set<float>("$Opacity", 1.0f);
 
     model.meshdatas = { MeshData{} };
-    model.meshdatas[0].m_pTexcoordArrays.resize(1);
     model.meshdatas[0].m_VertexCount = (uint32_t)data.vertices.size(); // 顶点 24个
     model.meshdatas[0].m_IndexCount = (uint32_t)(!data.indices16.empty() ? data.indices16.size() : data.indices32.size()); // 36个索引
     model.meshdatas[0].m_MaterialIndex = 0;
@@ -38,27 +37,13 @@ void Model::CreateFromGeometry(Model& model, ID3D11Device* device, const Geometr
     bufferDesc.ByteWidth = (uint32_t)data.vertices.size() * sizeof(XMFLOAT3);
     device->CreateBuffer(&bufferDesc, &initData, model.meshdatas[0].m_pVertices.GetAddressOf());
 
-    if (!data.texcoords.empty())
-    {
-        // uv纹理坐标（24个）
-        initData.pSysMem = data.texcoords.data();
-        bufferDesc.ByteWidth = (uint32_t)data.texcoords.size() * sizeof(XMFLOAT2);
-        device->CreateBuffer(&bufferDesc, &initData, model.meshdatas[0].m_pTexcoordArrays[0].GetAddressOf());
-    }
-
     bufferDesc.Usage = D3D11_USAGE_DEFAULT;
     bufferDesc.CPUAccessFlags = 0;
     if (!data.indices16.empty())
     {
-        // 索引buffer
+        // 索引buffer 36个索引
         initData.pSysMem = data.indices16.data();
         bufferDesc = CD3D11_BUFFER_DESC((uint16_t)data.indices16.size() * sizeof(uint16_t), D3D11_BIND_INDEX_BUFFER);
-        device->CreateBuffer(&bufferDesc, &initData, model.meshdatas[0].m_pIndices.GetAddressOf());
-    }
-    else
-    {
-        initData.pSysMem = data.indices32.data();
-        bufferDesc = CD3D11_BUFFER_DESC((uint32_t)data.indices32.size() * sizeof(uint32_t), D3D11_BIND_INDEX_BUFFER);
         device->CreateBuffer(&bufferDesc, &initData, model.meshdatas[0].m_pIndices.GetAddressOf());
     }
 }
