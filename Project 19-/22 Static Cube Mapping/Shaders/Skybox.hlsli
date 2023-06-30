@@ -7,12 +7,11 @@ cbuffer CBChangesEveryFrame : register(b0)
     matrix g_WorldViewProj;
 }
 
-struct VertexPos
-{
+struct VertexInput {
     float3 posL : POSITION;
 };
 
-struct VertexPosHL
+struct VSOutput
 {
     float4 posH : SV_POSITION;
     float3 posL : POSITION;
