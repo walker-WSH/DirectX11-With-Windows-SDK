@@ -9,12 +9,8 @@
 
 struct GeometryData
 {
-    std::vector<DirectX::XMFLOAT3> vertices;
-    std::vector<DirectX::XMFLOAT3> normals;
-    std::vector<DirectX::XMFLOAT2> texcoords;
-    std::vector<DirectX::XMFLOAT4> tangents;
-    std::vector<uint32_t> indices32;
-    std::vector<uint16_t> indices16;
+    std::vector<DirectX::XMFLOAT3> vertexList24;
+    std::vector<uint16_t> indexList36;
 };
 
 namespace Geometry

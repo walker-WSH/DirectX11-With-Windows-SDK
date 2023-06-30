@@ -138,7 +138,7 @@ void GameObject::Draw(ID3D11DeviceContext *deviceContext, IEffect &effect)
 
 		IEffectMaterial *pEffectMaterial = dynamic_cast<IEffectMaterial *>(&effect);
 		if (pEffectMaterial) // set g_TexCube to shader
-			pEffectMaterial->SetMaterial(m_pModel->materials[m_pModel->meshdatas[i].m_MaterialIndex]);
+			pEffectMaterial->SetMaterial(m_pModel->materials[0]);
 
 		effect.Apply(deviceContext); // 其中会设置wvp矩阵 g_WorldViewProj
 

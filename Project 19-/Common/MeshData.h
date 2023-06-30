@@ -23,12 +23,11 @@ struct MeshData
     template <class T>
     using ComPtr = Microsoft::WRL::ComPtr<T>;
 
-    ComPtr<ID3D11Buffer> m_pVertices;                    // 顶点buffer
-    ComPtr<ID3D11Buffer> m_pIndices;                     // 索引buffer
+    ComPtr<ID3D11Buffer> m_pVertices; // 顶点buffer
+    ComPtr<ID3D11Buffer> m_pIndices; // 索引buffer
 
     uint32_t m_VertexCount = 0;
     uint32_t m_IndexCount = 0;
-    uint32_t m_MaterialIndex = 0;
 
     DirectX::BoundingBox m_BoundingBox;
     bool m_InFrustum = true;
