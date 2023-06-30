@@ -105,28 +105,25 @@ bool GameApp::InitResource()
 		pTex->GetDesc(&texDesc);
 
 		std::unique_ptr<TextureCube> pTexCube = std::make_unique<TextureCube>(m_pd3dDevice.Get(), texDesc.Width, texDesc.Height, DXGI_FORMAT_R8G8B8A8_UNORM_SRGB);
-		pTexCube->SetDebugObjectName("Daylight");
+
 		for (uint32_t i = 0; i < 6; ++i) {
 			pCubeTextures[i]->GetResource(reinterpret_cast<ID3D11Resource **>(pTex.ReleaseAndGetAddressOf()));
 			m_pd3dImmediateContext->CopySubresourceRegion(pTexCube->GetTexture(), D3D11CalcSubresource(0, i, 1), 0, 0, 0, pTex.Get(), 0, nullptr);
 		}
+
 		m_TextureManager.AddTexture("Daylight", pTexCube->GetShaderResource());
+        // 此处结束 TextureCube对象就会析构 其创建的纹理 已经保存到了m_TextureManager
 	}
-
-	// Desert
-	m_TextureManager.AddTexture("Desert", m_TextureManager.CreateFromFile("..\\Texture\\desertcube1024.dds", false, true));
-
-	// ******************
-	// 初始化游戏对象
-	//
 
 	// 天空盒立方体
 	Model *pModel = m_ModelManager.CreateFromGeometry("Skybox", Geometry::CreateBox());
 	pModel->materials[0].Set<std::string>("$Skybox", "Daylight");
 	m_Skybox.SetModel(pModel);
+
+
 	// ******************
 	// 初始化摄像机
-	//
+
 	auto camera = std::make_shared<FirstPersonCamera>();
 	m_pCamera = camera;
 	m_CameraController.InitCamera(camera.get());

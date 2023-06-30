@@ -94,6 +94,9 @@ TextureCube::TextureCube(ID3D11Device* device, uint32_t width, uint32_t height,
 {
     D3D11_TEXTURE2D_DESC desc;
     m_pTexture->GetDesc(&desc);
+
+    // 纹理的ArraySize 是6 保存六个面的纹理
+
     m_MipLevels = desc.MipLevels;
     if (bindFlags & D3D11_BIND_RENDER_TARGET)
     {

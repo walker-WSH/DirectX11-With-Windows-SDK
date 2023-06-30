@@ -88,7 +88,11 @@ public:
     TextureCube(ID3D11Device* device, uint32_t width, uint32_t height, DXGI_FORMAT format,
         uint32_t mipLevels = 1,
         uint32_t bindFlags = D3D11_BIND_SHADER_RESOURCE | D3D11_BIND_RENDER_TARGET);
-    ~TextureCube() override = default;
+	~TextureCube()
+	{
+		OutputDebugStringA("");
+		OutputDebugStringA("");
+	}
 
     uint32_t GetMipLevels() const { return m_MipLevels; }
 
