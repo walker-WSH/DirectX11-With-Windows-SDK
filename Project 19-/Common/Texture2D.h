@@ -94,27 +94,9 @@ public:
 		OutputDebugStringA("");
 	}
 
-    uint32_t GetMipLevels() const { return m_MipLevels; }
-
-    ID3D11RenderTargetView* GetRenderTarget() { return m_pTextureArrayRTV.Get(); }
-    ID3D11RenderTargetView* GetRenderTarget(size_t arrayIdx) { return m_pRenderTargetElements[arrayIdx].Get(); }
-    
-    // RWTexture2D
-    ID3D11UnorderedAccessView* GetUnorderedAccess(size_t arrayIdx) { return m_pUnorderedAccessElements[arrayIdx].Get(); }
-    
-    // TextureCube
-    using Texture2DBase::GetShaderResource;
-    // Texture2D
-    ID3D11ShaderResourceView* GetShaderResource(size_t arrayIdx) { return m_pShaderResourceElements[arrayIdx].Get(); }
-
-    // 设置调试对象名
-    void SetDebugObjectName(std::string_view name) override;
-
 private:
-    uint32_t m_MipLevels = 1;
     ComPtr<ID3D11RenderTargetView> m_pTextureArrayRTV;   // RTV指向纹理数组
     std::vector<ComPtr<ID3D11RenderTargetView>> m_pRenderTargetElements;
-    std::vector<ComPtr<ID3D11UnorderedAccessView>> m_pUnorderedAccessElements;
     std::vector<ComPtr<ID3D11ShaderResourceView>> m_pShaderResourceElements;
 };
 
@@ -132,16 +114,10 @@ public:
     ID3D11RenderTargetView* GetRenderTarget() { return m_pTextureArrayRTV.Get(); }
     ID3D11RenderTargetView* GetRenderTarget(size_t arrayIdx) { return m_pRenderTargetElements[arrayIdx].Get(); }
     
-    // RWTexture2D
-    ID3D11UnorderedAccessView* GetUnorderedAccess(size_t arrayIdx) { return m_pUnorderedAccessElements[arrayIdx].Get(); }
-
     // Texture2DArray
     using Texture2DBase::GetShaderResource;
     // Texture2D
     ID3D11ShaderResourceView* GetShaderResource(size_t arrayIdx) { return m_pShaderResourceElements[arrayIdx].Get(); }
-
-    // 设置调试对象名
-    void SetDebugObjectName(std::string_view name) override;
 
 private:
     uint32_t m_MipLevels = 1;

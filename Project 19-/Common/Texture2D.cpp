@@ -97,7 +97,6 @@ TextureCube::TextureCube(ID3D11Device* device, uint32_t width, uint32_t height,
 
     // 纹理的ArraySize 是6 保存六个面的纹理
 
-    m_MipLevels = desc.MipLevels;
     if (bindFlags & D3D11_BIND_RENDER_TARGET)
     {
         // 单个子资源
@@ -119,23 +118,6 @@ TextureCube::TextureCube(ID3D11Device* device, uint32_t width, uint32_t height,
         device->CreateRenderTargetView(m_pTexture.Get(), &rtvDesc, m_pTextureArrayRTV.GetAddressOf());
     }
 
-    if (bindFlags & D3D11_BIND_UNORDERED_ACCESS) 
-    {
-        // 单个子资源
-        for (uint32_t i = 0; i < 6; ++i) {
-            CD3D11_UNORDERED_ACCESS_VIEW_DESC uavDesc(
-                D3D11_UAV_DIMENSION_TEXTURE2DARRAY,
-                format,
-                0,          // Mips
-                i, 1        // Array
-            );
-
-            ComPtr<ID3D11UnorderedAccessView> pUAV;
-            device->CreateUnorderedAccessView(m_pTexture.Get(), &uavDesc, pUAV.GetAddressOf());
-            m_pUnorderedAccessElements.push_back(pUAV);
-        }
-    }
-
     if (bindFlags & D3D11_BIND_SHADER_RESOURCE) 
     {
         // 单个子资源
@@ -153,21 +135,6 @@ TextureCube::TextureCube(ID3D11Device* device, uint32_t width, uint32_t height,
         }
     }
 
-}
-
-void TextureCube::SetDebugObjectName(std::string_view name)
-{
-    Texture2DBase::SetDebugObjectName(name);
-#if (defined(DEBUG) || defined(_DEBUG)) && (GRAPHICS_DEBUGGER_OBJECT_NAME)
-    for (size_t i = 0; i < m_pRenderTargetElements.size(); ++i)
-        ::SetDebugObjectName(m_pRenderTargetElements[i].Get(), std::string(name) + ".RTV[" + std::to_string(i) + "]");
-    for (size_t i = 0; i < m_pShaderResourceElements.size(); ++i)
-        ::SetDebugObjectName(m_pShaderResourceElements[i].Get(), std::string(name) + ".SRV[" + std::to_string(i) + "]");
-    for (size_t i = 0; i < m_pUnorderedAccessElements.size(); ++i)
-        ::SetDebugObjectName(m_pUnorderedAccessElements[i].Get(), std::string(name) + ".UAV[" + std::to_string(i) + "]");
-#else
-    UNREFERENCED_PARAMETER(name);
-#endif
 }
 
 Texture2DArray::Texture2DArray(ID3D11Device* device, uint32_t width, uint32_t height,
@@ -228,21 +195,6 @@ Texture2DArray::Texture2DArray(ID3D11Device* device, uint32_t width, uint32_t he
             m_pShaderResourceElements.push_back(pSRV);
         }
     }
-}
-
-void Texture2DArray::SetDebugObjectName(std::string_view name)
-{
-    Texture2DBase::SetDebugObjectName(name);
-#if (defined(DEBUG) || defined(_DEBUG)) && (GRAPHICS_DEBUGGER_OBJECT_NAME)
-    for (size_t i = 0; i < m_pRenderTargetElements.size(); ++i)
-        ::SetDebugObjectName(m_pRenderTargetElements[i].Get(), std::string(name) + ".RTV[" + std::to_string(i) + "]");
-    for (size_t i = 0; i < m_pShaderResourceElements.size(); ++i)
-        ::SetDebugObjectName(m_pShaderResourceElements[i].Get(), std::string(name) + ".SRV[" + std::to_string(i) + "]");
-    for (size_t i = 0; i < m_pUnorderedAccessElements.size(); ++i)
-        ::SetDebugObjectName(m_pUnorderedAccessElements[i].Get(), std::string(name) + ".UAV[" + std::to_string(i) + "]");
-#else
-    UNREFERENCED_PARAMETER(name);
-#endif
 }
 
 Texture2DMSArray::Texture2DMSArray(ID3D11Device* device, uint32_t width, uint32_t height,
