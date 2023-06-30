@@ -19,7 +19,6 @@ public:
     virtual ~Texture2DBase() = 0 {}
 
     ID3D11Texture2D* GetTexture() { return m_pTexture.Get(); }
-    // 获取访问完整资源的视图
     ID3D11ShaderResourceView* GetShaderResource() { return m_pTextureSRV.Get(); }
 
     uint32_t GetWidth() const { return m_Width; }
@@ -30,7 +29,7 @@ public:
 
 protected:
     ComPtr<ID3D11Texture2D> m_pTexture;
-    ComPtr<ID3D11ShaderResourceView> m_pTextureSRV;
+    ComPtr<ID3D11ShaderResourceView> m_pTextureSRV; // will be set into HLSL
     uint32_t m_Width{}, m_Height{};
 };
 
@@ -93,11 +92,6 @@ public:
 		OutputDebugStringA("");
 		OutputDebugStringA("");
 	}
-
-private:
-    ComPtr<ID3D11RenderTargetView> m_pTextureArrayRTV;   // RTV指向纹理数组
-    std::vector<ComPtr<ID3D11RenderTargetView>> m_pRenderTargetElements;
-    std::vector<ComPtr<ID3D11ShaderResourceView>> m_pShaderResourceElements;
 };
 
 class Texture2DArray : public Texture2DBase

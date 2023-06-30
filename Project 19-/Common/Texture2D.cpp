@@ -96,45 +96,6 @@ TextureCube::TextureCube(ID3D11Device* device, uint32_t width, uint32_t height,
     m_pTexture->GetDesc(&desc);
 
     // 纹理的ArraySize 是6 保存六个面的纹理
-
-    if (bindFlags & D3D11_BIND_RENDER_TARGET)
-    {
-        // 单个子资源
-        for (uint32_t i = 0; i < 6; ++i) {
-            CD3D11_RENDER_TARGET_VIEW_DESC rtvDesc(
-                D3D11_RTV_DIMENSION_TEXTURE2DARRAY,
-                format,
-                0,          // Mips
-                i, 1        // Array
-            );
-
-            ComPtr<ID3D11RenderTargetView> pRTV;
-            device->CreateRenderTargetView(m_pTexture.Get(), &rtvDesc, pRTV.GetAddressOf());
-            m_pRenderTargetElements.push_back(pRTV);
-        }
-
-        // 完整资源
-        CD3D11_RENDER_TARGET_VIEW_DESC rtvDesc(D3D11_RTV_DIMENSION_TEXTURE2DARRAY, format, 0);
-        device->CreateRenderTargetView(m_pTexture.Get(), &rtvDesc, m_pTextureArrayRTV.GetAddressOf());
-    }
-
-    if (bindFlags & D3D11_BIND_SHADER_RESOURCE) 
-    {
-        // 单个子资源
-        for (uint32_t i = 0; i < 6; ++i) {
-            CD3D11_SHADER_RESOURCE_VIEW_DESC srvElementDesc(
-                D3D11_SRV_DIMENSION_TEXTURE2DARRAY,
-                format,
-                0, (uint32_t)-1,
-                i, 1   // Array
-            );
-
-            ComPtr<ID3D11ShaderResourceView> pSRV;
-            device->CreateShaderResourceView(m_pTexture.Get(), &srvElementDesc, pSRV.GetAddressOf());
-            m_pShaderResourceElements.push_back(pSRV);
-        }
-    }
-
 }
 
 Texture2DArray::Texture2DArray(ID3D11Device* device, uint32_t width, uint32_t height,
