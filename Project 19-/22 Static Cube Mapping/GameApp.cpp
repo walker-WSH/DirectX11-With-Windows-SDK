@@ -32,7 +32,6 @@ void GameApp::OnResize()
 	D3DApp::OnResize();
 
 	m_pDepthTexture = std::make_unique<Depth2D>(m_pd3dDevice.Get(), m_ClientWidth, m_ClientHeight);
-	m_pDepthTexture->SetDebugObjectName("DepthTexture");
 
 	// 摄像机变更显示
 	if (m_pCamera != nullptr) {
