@@ -26,12 +26,6 @@
     <CustomBuild Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 19-\22 Static Cube Mapping\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <FXCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 19-\22 Static Cube Mapping\Shaders\Basic_PS.hlsl">
-      <Filter>Shaders</Filter>
-    </FXCompile>
-    <FXCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 19-\22 Static Cube Mapping\Shaders\Basic_VS.hlsl">
-      <Filter>Shaders</Filter>
-    </FXCompile>
     <FXCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 19-\22 Static Cube Mapping\Shaders\Skybox_PS.hlsl">
       <Filter>Shaders</Filter>
     </FXCompile>
@@ -40,12 +34,6 @@
     </FXCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 19-\22 Static Cube Mapping\Shaders\Basic.hlsli">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 19-\22 Static Cube Mapping\Shaders\LightHelper.hlsli">
-      <Filter>Shaders</Filter>
-    </None>
     <None Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 19-\22 Static Cube Mapping\Shaders\Skybox.hlsli">
       <Filter>Shaders</Filter>
     </None>

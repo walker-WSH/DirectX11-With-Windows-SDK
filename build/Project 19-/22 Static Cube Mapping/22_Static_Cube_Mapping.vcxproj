@@ -184,26 +184,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 19-\22 Static Cube Mapping\SkyboxEffect.cpp" />
     <ClInclude Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 19-\22 Static Cube Mapping\Effects.h" />
     <ClInclude Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 19-\22 Static Cube Mapping\GameApp.h" />
-    <None Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 19-\22 Static Cube Mapping\Shaders\Basic.hlsli">
-    </None>
-    <FXCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 19-\22 Static Cube Mapping\Shaders\Basic_PS.hlsl">
-      <EnableDebuggingInformation Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</EnableDebuggingInformation>
-      <EntryPointName>PS</EntryPointName>
-      <ShaderType>Pixel</ShaderType>
-      <ShaderModel>5.0</ShaderModel>
-      <DisableOptimizations Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DisableOptimizations>
-      <ObjectFileOutput>Shaders/Basic_PS.cso</ObjectFileOutput>
-    </FXCompile>
-    <FXCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 19-\22 Static Cube Mapping\Shaders\Basic_VS.hlsl">
-      <EnableDebuggingInformation Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</EnableDebuggingInformation>
-      <EntryPointName>VS</EntryPointName>
-      <ShaderType>Vertex</ShaderType>
-      <ShaderModel>5.0</ShaderModel>
-      <DisableOptimizations Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DisableOptimizations>
-      <ObjectFileOutput>Shaders/Basic_VS.cso</ObjectFileOutput>
-    </FXCompile>
-    <None Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 19-\22 Static Cube Mapping\Shaders\LightHelper.hlsli">
-    </None>
     <None Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 19-\22 Static Cube Mapping\Shaders\Skybox.hlsli">
     </None>
     <FXCompile Include="E:\workspace\DirectX11-With-Windows-SDK-forked\Project 19-\22 Static Cube Mapping\Shaders\Skybox_PS.hlsl">

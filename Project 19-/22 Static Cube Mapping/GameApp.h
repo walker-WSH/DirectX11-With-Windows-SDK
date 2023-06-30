@@ -33,14 +33,10 @@ private:
     TextureManager m_TextureManager;
     ModelManager m_ModelManager;
 
-    BasicEffect m_BasicEffect;		            			    // 对象渲染特效管理
     SkyboxEffect m_SkyboxEffect;							    // 天空盒特效管理
 
     std::unique_ptr<Depth2D> m_pDepthTexture;                   // 深度缓冲区
 
-    GameObject m_Sphere;										// 球
-    GameObject m_Ground;										// 地面
-    GameObject m_Cylinder;									    // 圆柱
     GameObject m_Skybox;                                        // 天空盒
 
     std::shared_ptr<FirstPersonCamera> m_pCamera;			    // 摄像机
