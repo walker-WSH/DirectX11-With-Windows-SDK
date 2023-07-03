@@ -31,8 +31,6 @@ void GameApp::OnResize()
 {
 	D3DApp::OnResize();
 
-	m_pDepthTexture = std::make_unique<Depth2D>(m_pd3dDevice.Get(), m_ClientWidth, m_ClientHeight);
-
 	// 摄像机变更显示
 	if (m_pCamera != nullptr) {
 		m_pCamera->SetFrustum(XM_PI / 3, AspectRatio(), 1.0f, 1000.0f);
@@ -69,10 +67,8 @@ void GameApp::DrawScene()
 	float black[4] = {0.0f, 0.0f, 0.0f, 1.0f};
 	m_pd3dImmediateContext->ClearRenderTargetView(GetBackBufferRTV(), black);
 
-	m_pd3dImmediateContext->ClearDepthStencilView(m_pDepthTexture->GetDepthStencil(), D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 1.0f, 0);
-
 	ID3D11RenderTargetView *pRTVs[1] = {GetBackBufferRTV()};
-	m_pd3dImmediateContext->OMSetRenderTargets(1, pRTVs, m_pDepthTexture->GetDepthStencil());
+	m_pd3dImmediateContext->OMSetRenderTargets(1, pRTVs, nullptr);
 
 	D3D11_VIEWPORT viewport = m_pCamera->GetViewPort();
 	m_pd3dImmediateContext->RSSetViewports(1, &viewport);
@@ -130,8 +126,8 @@ bool GameApp::InitResource()
 	m_pCamera = camera;
 	m_CameraController.InitCamera(camera.get());
 	camera->SetViewPort(0.0f, 0.0f, (float)m_ClientWidth, (float)m_ClientHeight);
-	camera->SetFrustum(XM_PI / 3, AspectRatio(), 1.0f, 1000.0f);
-	camera->LookTo(XMFLOAT3(0.0f, 0.0f, -10.0f), XMFLOAT3(0.0f, 0.0f, 1.0f), XMFLOAT3(0.0f, 1.0f, 0.0f));
+	camera->SetFrustum(XM_PI / 2, AspectRatio(), 0.1f, 2000.0f);
+	camera->LookTo(XMFLOAT3(0.0f, 0.0f, 0.0f), XMFLOAT3(0.0f, 0.0f, 1.0f), XMFLOAT3(0.0f, 1.0f, 0.0f));
 
 	m_SkyboxEffect.SetViewMatrix(camera->GetViewMatrixXM());
 	m_SkyboxEffect.SetProjMatrix(camera->GetProjMatrixXM());

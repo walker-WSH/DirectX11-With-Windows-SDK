@@ -104,7 +104,7 @@ bool SkyboxEffect::InitAll(ID3D11Device *device)
 	{
 		auto pPass = pImpl->m_pEffectHelper->GetEffectPass("Skybox");
 		pPass->SetRasterizerState(RenderStates::RSNoCull.Get());
-		pPass->SetDepthStencilState(RenderStates::DSSLessEqual.Get(), 0);
+		//pPass->SetDepthStencilState(RenderStates::DSSLessEqual.Get(), 0);
 	}
 
 	pImpl->m_pEffectHelper->SetSamplerStateByName("g_Sam", RenderStates::SSLinearWrap.Get());

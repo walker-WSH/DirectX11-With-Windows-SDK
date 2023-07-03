@@ -32,9 +32,6 @@ private:
 	ModelManager m_ModelManager;
 
 	SkyboxEffect m_SkyboxEffect; // 天空盒特效管理
-
-	std::unique_ptr<Depth2D> m_pDepthTexture; // 深度缓冲区
-
 	GameObject m_Skybox; // 天空盒
 
 	std::shared_ptr<FirstPersonCamera> m_pCamera;   // 摄像机
