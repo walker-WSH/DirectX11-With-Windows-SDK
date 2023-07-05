@@ -217,6 +217,8 @@ void Model::CreateFromFile(Model& model, ID3D11Device* device, std::string_view 
     }
     else
     {
+	    assert(false);
+
         std::string warning = "[Warning]: ModelManager::CreateFromFile, failed to load \"";
         warning += filename;
         warning += "\"\n";
