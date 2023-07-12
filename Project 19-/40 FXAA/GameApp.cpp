@@ -227,6 +227,10 @@ void GameApp::DrawScene()
     {
         ComPtr<ID3D11Texture2D> pBackBuffer;
         m_pSwapChain->GetBuffer(0, IID_PPV_ARGS(pBackBuffer.GetAddressOf()));
+
+        D3D11_TEXTURE2D_DESC desc;
+	    pBackBuffer->GetDesc(&desc);
+
         CD3D11_RENDER_TARGET_VIEW_DESC rtvDesc(D3D11_RTV_DIMENSION_TEXTURE2D, DXGI_FORMAT_R8G8B8A8_UNORM_SRGB);
         m_pd3dDevice->CreateRenderTargetView(pBackBuffer.Get(), &rtvDesc, m_pRenderTargetViews[m_FrameCount].ReleaseAndGetAddressOf());
     }
