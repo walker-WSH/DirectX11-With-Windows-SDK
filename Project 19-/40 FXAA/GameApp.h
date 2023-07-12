@@ -60,8 +60,6 @@ private:
     TextureManager m_TextureManager;                                // 纹理读取管理
     ModelManager m_ModelManager;                                    // 模型读取管理
     std::unique_ptr<Texture2DMS> m_pLitBuffer;                      // 场景渲染缓冲区
-    std::unique_ptr<Texture2D> m_pTempBuffer;                       // 存放天空盒渲染结果的缓冲区
-    std::unique_ptr<Depth2DMS> m_pDepthBuffer;                      // 深度缓冲区
 
     // 模型
     GameObject m_Powerplant;                                        // 发电厂模型

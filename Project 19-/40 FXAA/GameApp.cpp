@@ -59,8 +59,6 @@ void GameApp::OnResize()
     sampleDesc.Count = m_MsaaSamples;
     sampleDesc.Quality = 0;
     m_pLitBuffer = std::make_unique<Texture2DMS>(m_pd3dDevice.Get(), m_ClientWidth, m_ClientHeight, DXGI_FORMAT_R8G8B8A8_UNORM, sampleDesc);
-    m_pDepthBuffer = std::make_unique<Depth2DMS>(m_pd3dDevice.Get(), m_ClientWidth, m_ClientHeight, sampleDesc, DepthStencilBitsFlag::Depth_32Bits);
-    m_pTempBuffer = std::make_unique<Texture2D>(m_pd3dDevice.Get(), m_ClientWidth, m_ClientHeight, DXGI_FORMAT_R8G8B8A8_UNORM);
 
     // 摄像机变更显示
     if (m_pViewerCamera != nullptr)
@@ -162,9 +160,9 @@ void GameApp::UpdateScene(float dt)
             sampleDesc.Count = m_MsaaSamples;
             sampleDesc.Quality = 0;
             m_pLitBuffer = std::make_unique<Texture2DMS>(m_pd3dDevice.Get(), m_ClientWidth, m_ClientHeight, DXGI_FORMAT_R8G8B8A8_UNORM, sampleDesc);
-            m_pDepthBuffer = std::make_unique<Depth2DMS>(m_pd3dDevice.Get(), m_ClientWidth, m_ClientHeight, sampleDesc, DepthStencilBitsFlag::Depth_32Bits);
-            m_pTempBuffer = std::make_unique<Texture2D>(m_pd3dDevice.Get(), m_ClientWidth, m_ClientHeight, DXGI_FORMAT_R8G8B8A8_UNORM);
+           
             m_SkyboxEffect.SetMsaaSamples(m_MsaaSamples);
+
             need_gpu_timer_reset = true;
         }
 
@@ -426,12 +424,11 @@ void GameApp::RenderForward()
 	    float black[4] = {0.0f, 0.0f, 0.0f, 1.0f};
 	    m_pd3dImmediateContext->ClearRenderTargetView(GetBackBufferRTV(), black);
 	    m_pd3dImmediateContext->ClearRenderTargetView(m_pLitBuffer->GetRenderTarget(), black);
-	    m_pd3dImmediateContext->ClearDepthStencilView(m_pDepthBuffer->GetDepthStencil(), D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 0.0f, 0);
 
         // 正常绘制
 	    ID3D11RenderTargetView *pRTVs[1] = {m_EnableFXAA ? m_pLitBuffer->GetRenderTarget()
 							     : GetBackBufferRTV()};
-        m_pd3dImmediateContext->OMSetRenderTargets(1, pRTVs, m_pDepthBuffer->GetDepthStencil());
+        m_pd3dImmediateContext->OMSetRenderTargets(1, pRTVs, nullptr);
 
         m_ForwardEffect.SetCascadeFrustumsEyeSpaceDepths(m_CSManager.GetCascadePartitions());
 
