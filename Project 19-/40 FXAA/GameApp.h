@@ -33,7 +33,6 @@ private:
 
     void RenderShadowForAllCascades();
     void RenderForward();
-    void RenderSkybox();
     void PostProcess();
 
 

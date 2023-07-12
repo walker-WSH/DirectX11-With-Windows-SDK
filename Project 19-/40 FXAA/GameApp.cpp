@@ -240,7 +240,6 @@ void GameApp::DrawScene()
     //
     RenderShadowForAllCascades();
     RenderForward();
-    RenderSkybox();
     PostProcess();
 
     //
@@ -429,7 +428,8 @@ void GameApp::RenderForward()
 	    m_pd3dImmediateContext->ClearDepthStencilView(m_pDepthBuffer->GetDepthStencil(), D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 0.0f, 0);
 
         // 正常绘制
-        ID3D11RenderTargetView* pRTVs[1] = { m_pLitBuffer->GetRenderTarget() };
+	    ID3D11RenderTargetView *pRTVs[1] = {m_EnableFXAA ? m_pLitBuffer->GetRenderTarget()
+							     : GetBackBufferRTV()};
         m_pd3dImmediateContext->OMSetRenderTargets(1, pRTVs, m_pDepthBuffer->GetDepthStencil());
 
         m_ForwardEffect.SetCascadeFrustumsEyeSpaceDepths(m_CSManager.GetCascadePartitions());
@@ -469,46 +469,17 @@ void GameApp::RenderForward()
 }
 
 
-void GameApp::RenderSkybox()
-{
-    m_GpuTimer_Skybox.Start();
-    {
-        D3D11_VIEWPORT skyboxViewport = m_pViewerCamera->GetViewPort();
-        skyboxViewport.MinDepth = 1.0f;
-        skyboxViewport.MaxDepth = 1.0f;
-        m_pd3dImmediateContext->RSSetViewports(1, &skyboxViewport);
-
-        m_SkyboxEffect.SetRenderDefault();
-        m_SkyboxEffect.SetLitTexture(m_pLitBuffer->GetShaderResource());
-        m_SkyboxEffect.SetDepthTexture(m_pDepthBuffer->GetShaderResource());
-
-        // 由于全屏绘制，不需要用到深度缓冲区，也就不需要清空后备缓冲区了
-        ID3D11RenderTargetView* pRTVs[] = { m_EnableFXAA ? m_pTempBuffer->GetRenderTarget() : GetBackBufferRTV()};
-        m_pd3dImmediateContext->OMSetRenderTargets(1, pRTVs, nullptr);
-        m_Skybox.Draw(m_pd3dImmediateContext.Get(), m_SkyboxEffect);
-
-        // 清除状态
-        m_pd3dImmediateContext->OMSetRenderTargets(0, nullptr, nullptr);
-        m_SkyboxEffect.SetLitTexture(nullptr);
-        m_SkyboxEffect.SetDepthTexture(nullptr);
-        m_SkyboxEffect.Apply(m_pd3dImmediateContext.Get());
-    }
-    m_GpuTimer_Skybox.Stop();
-}
-
 void GameApp::PostProcess()
 {
     if (m_EnableFXAA)
     {
         m_GpuTimer_PostProcess.Start();
+
         D3D11_VIEWPORT fullScreenViewport = m_pViewerCamera->GetViewPort();
         fullScreenViewport.MinDepth = 0.0f;
         fullScreenViewport.MaxDepth = 1.0f;
-        m_FXAAEffect.RenderFXAA(
-            m_pd3dImmediateContext.Get(),
-            m_pTempBuffer->GetShaderResource(),
-            GetBackBufferRTV(),
-            fullScreenViewport);
+        m_FXAAEffect.RenderFXAA(m_pd3dImmediateContext.Get(), m_pLitBuffer->GetShaderResource(), GetBackBufferRTV(), fullScreenViewport);
+
         m_GpuTimer_PostProcess.Stop();
     }
 }
