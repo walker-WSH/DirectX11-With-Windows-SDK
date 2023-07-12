@@ -72,13 +72,10 @@ public:
 
     ID3D11RenderTargetView* GetRenderTarget() { return m_pTextureRTV.Get(); }
 
-    uint32_t GetMsaaSamples() const { return m_MsaaSamples; }
-
     // 设置调试对象名
     void SetDebugObjectName(std::string_view name) override;
 
 private:
-    uint32_t m_MsaaSamples = 1;
     ComPtr<ID3D11RenderTargetView> m_pTextureRTV;
 };
 

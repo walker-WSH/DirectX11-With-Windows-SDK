@@ -68,8 +68,7 @@ Texture2DMS::Texture2DMS(ID3D11Device* device, uint32_t width, uint32_t height,
     : Texture2DBase(device, 
         CD3D11_TEXTURE2D_DESC(format, width, height, 1, 1, bindFlags, 
             D3D11_USAGE_DEFAULT, 0, sampleDesc.Count, sampleDesc.Quality), 
-        CD3D11_SHADER_RESOURCE_VIEW_DESC(D3D11_SRV_DIMENSION_TEXTURE2DMS, format)), 
-    m_MsaaSamples(sampleDesc.Count)
+        CD3D11_SHADER_RESOURCE_VIEW_DESC(D3D11_SRV_DIMENSION_TEXTURE2DMS, format))
 {
     if (bindFlags & D3D11_BIND_RENDER_TARGET)
     {

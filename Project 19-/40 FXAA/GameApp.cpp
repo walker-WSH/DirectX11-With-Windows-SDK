@@ -361,12 +361,6 @@ bool GameApp::InitResource()
     // 初始化阴影
     //
     m_CSManager.InitResource(m_pd3dDevice.Get());
-    m_pDebugShadowBuffer = std::make_unique<Texture2D>(m_pd3dDevice.Get(), m_CSManager.m_ShadowSize, m_CSManager.m_ShadowSize, DXGI_FORMAT_R8G8B8A8_UNORM);
-    
-    // ******************
-    // 设置调试对象名
-    //
-    m_pLitBuffer->SetDebugObjectName("LitBuffer");
 
     return true;
 }
@@ -418,11 +412,6 @@ void GameApp::RenderForward()
 {
     m_GpuTimer_Lighting.Start();
     {
-        float black[4] = { 0.0f, 0.0f, 0.0f, 1.0f };
-        m_pd3dImmediateContext->ClearRenderTargetView(m_pLitBuffer->GetRenderTarget(), black);
-        // 注意：反向Z
-        m_pd3dImmediateContext->ClearDepthStencilView(m_pDepthBuffer->GetDepthStencil(), D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 0.0f, 0);
-
         D3D11_VIEWPORT viewport = m_pViewerCamera->GetViewPort();
         BoundingFrustum frustum;
         BoundingFrustum::CreateFromMatrix(frustum, m_pViewerCamera->GetProjMatrixXM());
@@ -431,10 +420,13 @@ void GameApp::RenderForward()
         m_Cube.FrustumCulling(frustum);
         m_pd3dImmediateContext->RSSetViewports(1, &viewport);
 
+	    float black[4] = {0.0f, 0.0f, 0.0f, 1.0f};
+	    m_pd3dImmediateContext->ClearRenderTargetView(m_pLitBuffer->GetRenderTarget(), black);
+	    m_pd3dImmediateContext->ClearDepthStencilView(m_pDepthBuffer->GetDepthStencil(), D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 0.0f, 0);
+
         // 正常绘制
         ID3D11RenderTargetView* pRTVs[1] = { m_pLitBuffer->GetRenderTarget() };
         m_pd3dImmediateContext->OMSetRenderTargets(1, pRTVs, m_pDepthBuffer->GetDepthStencil());
-
 
         m_ForwardEffect.SetCascadeFrustumsEyeSpaceDepths(m_CSManager.GetCascadePartitions());
 
