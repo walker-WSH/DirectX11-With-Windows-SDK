@@ -31,10 +31,9 @@
  # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  **************************************************************************/
 
+
 #ifndef FXAA_HLSL
 #define FXAA_HLSL
-
-#include "FullScreenTriangle.hlsl"
 
 #ifndef FXAA_QUALITY__PRESET
 #define FXAA_QUALITY__PRESET 39

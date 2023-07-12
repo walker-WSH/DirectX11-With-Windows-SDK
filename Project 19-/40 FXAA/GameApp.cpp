@@ -424,6 +424,7 @@ void GameApp::RenderForward()
         m_pd3dImmediateContext->RSSetViewports(1, &viewport);
 
 	    float black[4] = {0.0f, 0.0f, 0.0f, 1.0f};
+	    m_pd3dImmediateContext->ClearRenderTargetView(GetBackBufferRTV(), black);
 	    m_pd3dImmediateContext->ClearRenderTargetView(m_pLitBuffer->GetRenderTarget(), black);
 	    m_pd3dImmediateContext->ClearDepthStencilView(m_pDepthBuffer->GetDepthStencil(), D3D11_CLEAR_DEPTH | D3D11_CLEAR_STENCIL, 0.0f, 0);
 
